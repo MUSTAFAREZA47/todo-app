@@ -75,6 +75,7 @@ function App() {
                         )}
                     </div>
                 </div>
+                <p className="text-center text-gray-500 mt-4 uppercase text-[10px]">Developed By Ahmed</p>
             </div>
         </TodoProvider>
     )
