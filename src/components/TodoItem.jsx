@@ -5,6 +5,7 @@ function TodoItem({ todo }) {
     const [isTodoEditable, setIsTodoEditable] = useState(false)
     const [todoMsg, setTodoMsg] = useState(todo.todo)
     const { updateTodo, deleteTodo, toggleComplete } = useTodo()
+    const [showCongrats, setShowCongrats] = useState(false)
 
     const editTodo = () => {
         updateTodo(todo.id, { ...todo, todo: todoMsg })
@@ -13,6 +14,11 @@ function TodoItem({ todo }) {
 
     const toggleCompleted = () => {
         toggleComplete(todo.id)
+        if (!todo.completed) {
+            // Only show the popup if the todo is being marked as completed
+            setShowCongrats(true)
+            setTimeout(() => setShowCongrats(false), 3000) // Hide after 3 seconds
+        }
     }
 
     return (
@@ -69,6 +75,12 @@ function TodoItem({ todo }) {
             >
                 ❌
             </button>
+            {/* Congratulatory Popup */}
+            {showCongrats && (
+                <div className="absolute text-xl top-0 left-1/2 transform -translate-x-1/2 bg-green-700 text-white p-3 rounded-md shadow-lg mt-3">
+                    Congratulations 🎉
+                </div>
+            )}
         </div>
     )
 }
