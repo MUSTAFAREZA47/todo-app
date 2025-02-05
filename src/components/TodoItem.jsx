@@ -77,7 +77,7 @@ function TodoItem({ todo }) {
             </button>
             {/* Congratulatory Popup */}
             {showCongrats && (
-                <div className="absolute text-xl top-0 left-1/2 transform -translate-x-1/2 bg-green-700 text-white p-3 rounded-md shadow-lg mt-3">
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 bg-green-600 text-white p-2 rounded-md shadow-lg mt-3">
                     Congratulations 🎉
                 </div>
             )}
